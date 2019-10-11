@@ -25,5 +25,20 @@ namespace Deelopdracht_2_versie_3
                 }
             }
         }
+        public void Update(string naam)
+        {
+            this.naam = naam;
+            SqlWrite("UPDATE Locatie SET naam = @naam WHERE locatieId = @locatieId ;", naam, this.locatieId);
+        }
+
+        public void NewBoekenkast(string plaats)
+        {
+            SqlWrite("INSERT INTO Boekenkast (plaats, locatieId) VALUES (@plaats , @locatieId );", plaats, this.locatieId);
+            using (DataRow row = SqlRead("SELECT * FROM Boekenkast WHERE "))
+            {
+
+            }
+                this.boekenkasten.Add(new Boekenkast(this, ));
+        }
     }
 }

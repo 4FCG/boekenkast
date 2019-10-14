@@ -10,18 +10,18 @@ namespace Deelopdracht_2_versie_3
 {
     class Boekenkast
     {
-        private int kastId;
-        private string plaats;
-        private List<Vak> vakken;
-        private Locatie locatie;
+        public int KastId { get; }
+        public string Plaats { get; private set; }
+        private List<Vak> vakken = new List<Vak>();
+        public Locatie Locatie { get; private set; }
 
-        public Boekenkast(Locatie locatie, DataRow parentRow)
+        public Boekenkast(Locatie locatie, object kastId, object plaats)
         {
-            this.kastId = Convert.ToInt32(parentRow["kastId"]);
-            this.plaats = parentRow["plaats"].ToString();
-            this.locatie = locatie;
+            this.KastId = Convert.ToInt32(kastId);
+            this.Plaats = plaats.ToString();
+            this.Locatie = locatie;
 
-            using (DataTable vakken = SqlRead("SELECT * FROM Vak WHERE kastId = @kastId ;", this.kastId))
+            using (DataTable vakken = SqlRead("SELECT * FROM Vak WHERE kastId = @kastId ;", this.KastId))
             {
                 foreach (DataRow childRow in vakken.Rows)
                 {
@@ -30,5 +30,9 @@ namespace Deelopdracht_2_versie_3
             }
         }
 
+        public void Delete()
+        {
+
+        }
     }
 }

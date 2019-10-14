@@ -11,7 +11,7 @@ namespace Deelopdracht_2_versie_3
     class Vak
     {
         private int vakId;
-        private List<Boek> boeken;
+        private List<Boek> boeken = new List<Boek>();
         private Boekenkast boekenkast;
 
         public Vak(Boekenkast boekenkast, DataRow parentRow)

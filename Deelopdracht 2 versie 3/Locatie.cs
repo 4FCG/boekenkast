@@ -10,35 +10,46 @@ namespace Deelopdracht_2_versie_3
 {
     class Locatie
     {
-        private int locatieId;
-        private string naam;
-        private List<Boekenkast> boekenkasten = new List<Boekenkast>();
-        public Locatie(DataRow parentRow)
+        public int LocatieId { get; }
+        public string Naam { get; private set; }
+        public List<Boekenkast> Boekenkasten { get; private set; } = new List<Boekenkast>();
+        private List<Locatie> locaties;
+
+        
+        public Locatie(List<Locatie> locaties, object locatieId, object naam)
         {
-            this.locatieId = Convert.ToInt32(parentRow["locatieId"]);
-            this.naam = parentRow["naam"].ToString();
-            using (DataTable boekenkasten = SqlRead("SELECT * FROM Boekenkast WHERE locatieId = @locatieId ;", this.locatieId))
+            this.LocatieId = Convert.ToInt32(locatieId);
+            this.Naam = naam.ToString();
+            this.locaties = locaties;
+
+            using (DataTable boekenkasten = SqlRead("SELECT * FROM Boekenkast WHERE locatieId = @locatieId ;", this.LocatieId))
             {
                 foreach (DataRow childRow in boekenkasten.Rows)
                 {
-                    this.boekenkasten.Add(new Boekenkast(this, childRow));
+                    this.Boekenkasten.Add(new Boekenkast(this, childRow["kastId"], childRow["plaats"]));
                 }
             }
         }
         public void Update(string naam)
         {
-            this.naam = naam;
-            SqlWrite("UPDATE Locatie SET naam = @naam WHERE locatieId = @locatieId ;", naam, this.locatieId);
+            this.Naam = naam;
+            SqlWrite("UPDATE Locatie SET naam = @naam WHERE locatieId = @locatieId ;", naam, this.LocatieId);
         }
 
         public void NewBoekenkast(string plaats)
         {
-            SqlWrite("INSERT INTO Boekenkast (plaats, locatieId) VALUES (@plaats , @locatieId );", plaats, this.locatieId);
-            using (DataRow row = SqlRead("SELECT * FROM Boekenkast WHERE "))
-            {
+            object kastId = SqlWrite("INSERT INTO Boekenkast (plaats, locatieId) OUTPUT INSERTED.kastId VALUES (@plaats , @locatieId );", plaats, this.LocatieId);
+            this.Boekenkasten.Add(new Boekenkast(this, kastId, plaats));
+        }
 
+        public void Delete()
+        {
+            foreach (Boekenkast kast in this.Boekenkasten)
+            {
+                kast.Delete();
             }
-                this.boekenkasten.Add(new Boekenkast(this, ));
+            SqlWrite("DELETE FROM Locatie WHERE locatieId = @locatieId ;", this.LocatieId);
+            this.locaties.Remove(this);
         }
     }
 }

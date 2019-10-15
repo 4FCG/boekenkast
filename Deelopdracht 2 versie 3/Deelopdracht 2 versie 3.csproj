@@ -54,12 +54,33 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hoofdpagina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hoofdpagina.Designer.cs">
+      <DependentUpon>Hoofdpagina.cs</DependentUpon>
+    </Compile>
     <Compile Include="Locatie.cs" />
+    <Compile Include="LocatieNavigatie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NavigatieScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NavigatieScherm.Designer.cs">
+      <DependentUpon>NavigatieScherm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="SqlTools.cs" />
     <Compile Include="Vak.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hoofdpagina.resx">
+      <DependentUpon>Hoofdpagina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavigatieScherm.resx">
+      <DependentUpon>NavigatieScherm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

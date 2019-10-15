@@ -8,7 +8,7 @@ using static Deelopdracht_2_versie_3.SqlTools;
 
 namespace Deelopdracht_2_versie_3
 {
-    class Vak
+    public class Vak
     {
         private int vakId;
         private List<Boek> boeken = new List<Boek>();

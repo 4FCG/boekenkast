@@ -8,7 +8,7 @@ using static Deelopdracht_2_versie_3.SqlTools;
 
 namespace Deelopdracht_2_versie_3
 {
-    class Boek
+    public class Boek
     {
         private int boekId;
         private string titel;

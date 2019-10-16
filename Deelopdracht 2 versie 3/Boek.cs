@@ -8,7 +8,7 @@ using static Deelopdracht_2_versie_3.SqlTools;
 
 namespace Deelopdracht_2_versie_3
 {
-    public class Boek
+    public class Boek : IAlgemeenDatabaseObject
     {
         private int boekId;
         private string titel;
@@ -23,6 +23,11 @@ namespace Deelopdracht_2_versie_3
             this.titel = parentRow["titel"].ToString();
             this.genre = parentRow["genre"].ToString();
             this.auteurId = Convert.ToInt32(parentRow["auteurId"]);
+        }
+
+        public void Delete()
+        {
+
         }
     }
 }

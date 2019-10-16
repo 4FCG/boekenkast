@@ -8,7 +8,7 @@ using static Deelopdracht_2_versie_3.SqlTools;
 
 namespace Deelopdracht_2_versie_3
 {
-    public class Vak
+    public class Vak : IAlgemeenDatabaseObject
     {
         private int vakId;
         private List<Boek> boeken = new List<Boek>();
@@ -26,6 +26,11 @@ namespace Deelopdracht_2_versie_3
                     this.boeken.Add(new Boek(this, childRow));
                 }
             }
+        }
+
+        public void Delete()
+        {
+
         }
     }
 }

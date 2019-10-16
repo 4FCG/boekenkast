@@ -90,6 +90,7 @@
             this.deleteButton.TabIndex = 6;
             this.deleteButton.Text = "🗑";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // secondaryObjectName
             // 

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlgemeenDatabaseObject.cs" />
     <Compile Include="Boek.cs" />
     <Compile Include="Boekenkast.cs" />
     <Compile Include="Form1.cs">

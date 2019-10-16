@@ -8,7 +8,7 @@ using static Deelopdracht_2_versie_3.SqlTools;
 
 namespace Deelopdracht_2_versie_3
 {
-    public class Boekenkast
+    public class Boekenkast : IAlgemeenDatabaseObject
     {
         public int KastId { get; }
         public string Plaats { get; private set; }

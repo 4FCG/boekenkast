@@ -30,10 +30,10 @@ namespace Deelopdracht_2_versie_3
                 }
             }
         }
-        public void Update(string naam)
+        public void Update(Dictionary<string, string> objectData)
         {
-            this.Naam = naam;
-            SqlWrite("UPDATE Locatie SET naam = @naam WHERE locatieId = @locatieId ;", naam, this.LocatieId);
+            this.Naam = objectData["Naam"];
+            SqlWrite("UPDATE Locatie SET naam = @naam WHERE locatieId = @locatieId ;", objectData["Naam"], this.LocatieId);
         }
 
         public void NewBoekenkast(string plaats)

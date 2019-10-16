@@ -80,6 +80,7 @@
             this.saveButton.TabIndex = 5;
             this.saveButton.Text = "💾";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // deleteButton
             // 

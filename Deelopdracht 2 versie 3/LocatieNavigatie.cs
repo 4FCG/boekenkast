@@ -28,14 +28,9 @@ namespace Deelopdracht_2_versie_3
 
                 AddAttributeTextBox("Naam", "Naam:", locatie.Naam);
 
-                saveButton.Click += new EventHandler(this.saveButton_Click);
+                //saveButton.Click += new EventHandler(this.saveButton_Click);
                 //deleteButton.Click += new EventHandler(this.deleteButton_Click);
                 addButton.Click += new EventHandler(this.addButton_Click);
-            }
-
-            private void saveButton_Click(object sender, EventArgs e)
-            {
-                this.locatie.Update((attributePanel.Controls.Find("Naam", true).First() as TextBox).Text);
             }
 
             private void addButton_Click(object sender, EventArgs e)

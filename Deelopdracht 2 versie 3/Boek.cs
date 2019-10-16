@@ -29,5 +29,10 @@ namespace Deelopdracht_2_versie_3
         {
 
         }
+
+        public void Update(Dictionary<string, string> objectData)
+        {
+
+        }
     }
 }

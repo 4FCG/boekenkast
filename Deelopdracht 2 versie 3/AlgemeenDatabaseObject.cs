@@ -9,5 +9,7 @@ namespace Deelopdracht_2_versie_3
     public interface IAlgemeenDatabaseObject
     {
         void Delete();
+
+        void Update(Dictionary<string, string> objectData);
     }
 }

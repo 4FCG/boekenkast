@@ -66,7 +66,7 @@ namespace Deelopdracht_2_versie_3
             });
 
         }
-        //Delete button event, calls delete on databaseobject.
+        //Delete button event, calls delete on database object.
         private void deleteButton_Click(object sender, EventArgs e)
         {
             DialogResult confirmMessage = MessageBox.Show("Weet u zeker dat u dit wilt verwijderen?", "Verwijderen", MessageBoxButtons.OKCancel);
@@ -76,6 +76,18 @@ namespace Deelopdracht_2_versie_3
                 this.databaseObject.Delete();
                 backButton_Click(sender, e);
             }
+        }
+        //Sends values of all textbox fields to the update function of the database object.
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            var textBoxData = new Dictionary<string, string>();
+
+            foreach (TextBox textBox in this.attributePanel.Controls.OfType<TextBox>()) 
+            {
+                textBoxData.Add(textBox.Name, textBox.Text);   
+            }
+
+            this.databaseObject.Update(textBoxData);
         }
     }
 }

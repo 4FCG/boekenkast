@@ -90,6 +90,18 @@
     <Compile Include="Program.cs" />
     <Compile Include="SqlTools.cs" />
     <Compile Include="Vak.cs" />
+    <Compile Include="ZoekScherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZoekScherm.Designer.cs">
+      <DependentUpon>ZoekScherm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZoekSelectie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZoekSelectie.Designer.cs">
+      <DependentUpon>ZoekSelectie.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddNewObject.resx">
       <DependentUpon>AddNewObject.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +119,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewLocatie.resx">
       <DependentUpon>NewLocatie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZoekScherm.resx">
+      <DependentUpon>ZoekScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZoekSelectie.resx">
+      <DependentUpon>ZoekSelectie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

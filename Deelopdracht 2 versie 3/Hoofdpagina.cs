@@ -42,5 +42,12 @@ namespace Deelopdracht_2_versie_3
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var nextForm = new ZoekSelectie(this);
+            nextForm.Show();
+        }
     }
 }

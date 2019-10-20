@@ -11,7 +11,7 @@ namespace Deelopdracht_2_versie_3
 {
     static class SqlTools
     {
-        private const string connectionstring = "Data Source=USER;Initial Catalog=\"Boekenkast programma\";Integrated Security=True";
+        private const string connectionstring = "Data Source=USER;Initial Catalog=\"deelopdracht 2\";Integrated Security=True";
         public static DataTable SqlRead(string queryString, params object[] args)
         {
             using (SqlConnection connection = new SqlConnection(connectionstring))
@@ -62,6 +62,25 @@ namespace Deelopdracht_2_versie_3
                 }
             }
         }
+
+        public static Dictionary<string, object> RowToDict(DataRow row)
+        {
+            return row.Table.Columns.Cast<DataColumn>().ToDictionary(column => column.ColumnName, column => row[column]);
+        }
+
+        public static List<Dictionary<string, object>> SearchDatabaseObject(Type target)
+        {
+            var output = new List<Dictionary<string, object>>();
+            using (DataTable data = SqlRead("SELECT * FROM " + target.ToString().Remove(0, 24) + " ;")) 
+            {
+                foreach (DataRow row in data.Rows)
+                {
+                    output.Add(RowToDict(row));
+                }
+            }
+            
+            return output;
+        }
     }
 }
 /*
@@ -71,10 +90,10 @@ namespace Deelopdracht_2_versie_3
     PRIMARY KEY (locatieId));
 
     CREATE TABLE Boekenkast (
-    kastId INT NOT NULL identity(1, 1),
+    boekenkastId INT NOT NULL identity(1, 1),
     plaats VARCHAR(255) NULL,
     locatieId INT NOT NULL,
-    PRIMARY KEY (kastId),
+    PRIMARY KEY (boekenkastId),
     INDEX locatie_idx (locatieId ASC),
     CONSTRAINT locatie_constraint
     FOREIGN KEY (locatieId)
@@ -84,12 +103,12 @@ namespace Deelopdracht_2_versie_3
 
     CREATE TABLE Vak (
     vakId INT NOT NULL identity(1, 1),
-    kastId INT NOT NULL,
+    boekenkastId INT NOT NULL,
     PRIMARY KEY (vakId),
-    INDEX kast_idx (kastId ASC),
+    INDEX kast_idx (boekenkastId ASC),
     CONSTRAINT kast_constraint
-    FOREIGN KEY (kastId)
-    REFERENCES Boekenkast (kastId)
+    FOREIGN KEY (boekenkastId)
+    REFERENCES Boekenkast (boekenkastId)
     ON DELETE CASCADE
     ON UPDATE NO ACTION);
 

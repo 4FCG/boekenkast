@@ -46,15 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlgemeenDatabaseObject.cs" />
-    <Compile Include="Boek.cs" />
-    <Compile Include="Boekenkast.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="AddNewObject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AddNewObject.Designer.cs">
+      <DependentUpon>AddNewObject.cs</DependentUpon>
     </Compile>
+    <Compile Include="BoekEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BoekEdit.Designer.cs">
+      <DependentUpon>BoekEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTools.cs" />
+    <Compile Include="IDatabaseObject.cs" />
+    <Compile Include="Boek.cs" />
+    <Compile Include="Boekenkast.cs" />
     <Compile Include="Hoofdpagina.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,8 +69,11 @@
       <DependentUpon>Hoofdpagina.cs</DependentUpon>
     </Compile>
     <Compile Include="Locatie.cs" />
-    <Compile Include="LocatieNavigatie.cs">
+    <Compile Include="LocatieList.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocatieList.Designer.cs">
+      <DependentUpon>LocatieList.cs</DependentUpon>
     </Compile>
     <Compile Include="NavigatieScherm.cs">
       <SubType>Form</SubType>
@@ -71,17 +81,32 @@
     <Compile Include="NavigatieScherm.Designer.cs">
       <DependentUpon>NavigatieScherm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewLocatie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewLocatie.Designer.cs">
+      <DependentUpon>NewLocatie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="SqlTools.cs" />
     <Compile Include="Vak.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AddNewObject.resx">
+      <DependentUpon>AddNewObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BoekEdit.resx">
+      <DependentUpon>BoekEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hoofdpagina.resx">
       <DependentUpon>Hoofdpagina.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LocatieList.resx">
+      <DependentUpon>LocatieList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NavigatieScherm.resx">
       <DependentUpon>NavigatieScherm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewLocatie.resx">
+      <DependentUpon>NewLocatie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

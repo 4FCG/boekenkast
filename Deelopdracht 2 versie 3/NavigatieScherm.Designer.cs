@@ -59,7 +59,6 @@
             this.primaryObjectName.Size = new System.Drawing.Size(74, 25);
             this.primaryObjectName.TabIndex = 2;
             this.primaryObjectName.Text = "Object";
-            this.primaryObjectName.Click += new System.EventHandler(this.label1_Click);
             // 
             // idLabel
             // 
@@ -69,7 +68,6 @@
             this.idLabel.Size = new System.Drawing.Size(59, 13);
             this.idLabel.TabIndex = 3;
             this.idLabel.Text = "IdName: Id";
-            this.idLabel.Click += new System.EventHandler(this.idLabel_Click);
             // 
             // saveButton
             // 
@@ -120,6 +118,7 @@
             this.addButton.TabIndex = 9;
             this.addButton.Text = "+";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // selectButton
             // 
@@ -130,12 +129,13 @@
             this.selectButton.TabIndex = 10;
             this.selectButton.Text = "Selecteer object";
             this.selectButton.UseVisualStyleBackColor = true;
+            this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
             // 
             // attributePanel
             // 
             this.attributePanel.Location = new System.Drawing.Point(12, 103);
             this.attributePanel.Name = "attributePanel";
-            this.attributePanel.Size = new System.Drawing.Size(183, 120);
+            this.attributePanel.Size = new System.Drawing.Size(207, 120);
             this.attributePanel.TabIndex = 11;
             // 
             // NavigatieScherm
@@ -155,7 +155,6 @@
             this.Controls.Add(this.backButton);
             this.Name = "NavigatieScherm";
             this.Text = "NavigatieScherm";
-            this.Load += new System.EventHandler(this.NavigatieScherm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

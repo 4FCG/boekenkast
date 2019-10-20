@@ -83,6 +83,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Hoofdpagina";
             this.Text = "Hoofdpagina";
+            this.Load += new System.EventHandler(this.Hoofdpagina_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

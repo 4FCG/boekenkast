@@ -21,7 +21,7 @@ namespace Deelopdracht_2_versie_3
             {
                 foreach (DataRow row in locatieData.Rows)
                 {
-                    this.Locaties.Add(new Locatie(this.Locaties, row["locatieId"], row["naam"]));
+                    this.Locaties.Add(new Locatie(this.Locaties, RowToDict(row)));
                 }
             }
         }
@@ -34,8 +34,13 @@ namespace Deelopdracht_2_versie_3
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            NavigatieScherm.LocatieNavigatie form1 = new NavigatieScherm.LocatieNavigatie(this, this.Locaties[0]);
+            var form1 = new LocatieList(this.Locaties, this);
             form1.Show();
+        }
+
+        private void Hoofdpagina_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
